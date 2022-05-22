@@ -1,0 +1,136 @@
+int led1 = 8;
+int led2 = 9;
+int button=2;
+int buttonState;
+int val;
+int val2;
+int lightMode=0;
+void setup()
+{
+ pinMode(button, INPUT);
+ pinMode(led1, OUTPUT);
+ pinMode(led2, OUTPUT);
+ buttonState=digitalRead(button);
+}
+void loop()
+{
+ val=digitalRead(button);
+ delay(1);
+ val2=digitalRead(button);
+ if(val==val2)
+ {
+ if(val!=buttonState)
+ {
+ if(val==LOW)
+ {
+ if(lightMode==0){lightMode=1;}
+ else
+ {if(lightMode==1){lightMode=2;}
+ else
+ {if(lightMode==2){lightMode=3;}
+ else
+ {if(lightMode==3){lightMode=4;}
+ else
+ {if(lightMode==4){lightMode=5;}
+ else
+ {if(lightMode==5){lightMode=0;}
+ }
+ }
+ }
+ }
+ }
+}
+buttonState=val;
+}
+}
+if(lightMode==0)
+{
+ digitalWrite(led1,LOW);
+ digitalWrite(led2,LOW);
+}
+if(lightMode==1)
+{
+ digitalWrite(led2,LOW);
+ delay(200);
+ digitalWrite(led1,HIGH);
+ delay(100);
+ digitalWrite(led1,LOW);
+ delay(100);
+ digitalWrite(led1,HIGH);
+ delay(100);
+ digitalWrite(led1,LOW);
+ delay(100);
+ digitalWrite(led2,HIGH);
+ delay(100);
+ digitalWrite(led2,LOW);
+ delay(100);
+ digitalWrite(led2,HIGH);
+ delay(100);
+ digitalWrite(led2,LOW);
+ delay(100);
+ digitalWrite(led2,HIGH);
+ delay(100);
+}
+if(lightMode==2)
+{
+ digitalWrite(led1,HIGH);
+ delay(95);
+ digitalWrite(led1,LOW);
+ delay(45);
+ digitalWrite(led1,HIGH);
+ delay(45);
+ digitalWrite(led1,LOW);
+ delay(45);
+ digitalWrite(led1,HIGH);
+ delay(45);
+ digitalWrite(led1,LOW);
+ delay(45);
+ digitalWrite(led1,HIGH);
+ delay(95);
+ digitalWrite(led1,LOW);
+ digitalWrite(led2,HIGH);
+ delay(45);
+ digitalWrite(led2,LOW);
+ delay(45);
+ digitalWrite(led2,HIGH);
+ delay(45);
+ digitalWrite(led2,LOW);
+ delay(45);
+ digitalWrite(led2,HIGH);
+ delay(45);
+ digitalWrite(led2,LOW);
+ delay(45);
+ digitalWrite(led2,HIGH);
+ delay(95);
+ digitalWrite(led2,LOW);
+}
+if(lightMode==3)
+{
+ digitalWrite(led2,LOW);
+ digitalWrite(led1,HIGH);
+ delay(200);
+ digitalWrite(led1,LOW);
+ digitalWrite(led2,HIGH);
+ delay(200);
+}
+if(lightMode==4)
+{
+ digitalWrite(led1,HIGH);
+ delay(65);
+ digitalWrite(led1,LOW);
+ delay(50);
+ digitalWrite(led2,HIGH);
+ delay(65);
+ digitalWrite(led2,LOW);
+ delay(50);
+}
+if(lightMode==5)
+{
+ digitalWrite(led1,HIGH);
+ digitalWrite(led2,HIGH);
+ delay(200);
+ digitalWrite(led1,LOW);
+ digitalWrite(led2,LOW);
+ delay(200);
+}
+}
